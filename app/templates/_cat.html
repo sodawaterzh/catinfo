@@ -1,0 +1,59 @@
+<table class="table table-hover">
+
+    <tr>
+        <td>
+            <img src="{{ cat.headimage }}" width="5%" height="5%">
+            <br>
+            <a style="color: black ">
+                名字：{{ cat.catname }}
+            </a>
+        <br>
+            <a>
+                生日：{{ cat.birthday }}
+            </a>
+        <br>
+            <a>
+                性别：{{ cat.sex }}
+            </a>
+         <div class="btn-group" style="float:right">
+              <button type="button" class="btn btn-info">更多</button>
+              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+             <ul class="dropdown-menu">
+                <li><a href={{ url_for('main.alterCat',id=cat.id) }}>修改资料</a></li>
+                <li><a href="javascript:a('{{ cat.id }}')"  >删除这只猫</a>
+                <script>
+                    function a(catid) {
+
+                        if (confirm("确定删除吗？")) {
+
+                        url = "/deleteCat/"+catid
+            　　　　　　　　　$.get(url
+                        ).done(function(response) {
+                           rej=  JSON.stringify(response);
+
+                            alert(response.message)
+                        }).fail(function() {
+                            alert("请稍后再试")
+
+                        });
+                    }
+
+
+        }
+
+
+
+    </script></li>
+{#                 #url_for('main.deleteCat',id= cat.id) }}#}
+                <li><a href={{ url_for("main.addtime",id = cat.id) }}>添加时间记录</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+        </div>
+        </td>
+
+    </tr>
+</table>

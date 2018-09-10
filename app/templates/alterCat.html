@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{#{% import 'bootstrap/wtf.html' as wtf %}#}
+{% block title %}
+    修改信息
+{% endblock %}
+{% block app_content %}
+
+        <div style="width:300px; margin:0 auto;">
+        <h1>修改{{ cat.catname }}信息</h1>
+        <form role="form" method="POST" enctype="multipart/form-data">
+              {{ form.hidden_tag() }}
+            <p>
+                {{ form.catname.label }}<br>
+                {{ form.catname(value=cat.catname) }}
+                {% for error in form.catname.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+            </p>
+            <p>
+                {{ form.birthday.label }}<br>
+                {{ form.birthday(type="date",value=cat.birthday) }}
+                {% for error in form.birthday.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+            </p>
+            <p>{{ form.sex.label }}<br>
+                {{ form.sex (value=cat.sex)}}
+        {% for error in form.sex.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+            <p>
+                {{form.headimage.label}}<br>
+                {{form.headimage(value=cat.headimage)}}
+            {% for error in form.headimage.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+            </p>
+            <p>{{ form.submit }}</p>
+
+
+        </form>
+        </div>
+
+
+
+
+{% endblock %}

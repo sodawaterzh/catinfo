@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    修改信息
+{% endblock %}
+{% block app_content %}
+    {% include '_timeinfo.html' %}
+
+
+
+        <h3>添加相关时间记录</h3>
+       <form role="form" method="post" >
+              {{ form.hidden_tag() }}
+            <p>
+                {{ form.time.label }}<br>
+                {{ form.time(type = "date") }}
+
+
+            </p>
+            <p>
+                {{ form.description.label }}<br>
+                {{ form.description }}
+
+            </p>
+            <p>{{ form.type.label }}<br>
+                {{ form.type }}
+
+
+            <p>{{ form.submit() }}</p>
+
+
+        </form>
+
+
+
+{% endblock %}

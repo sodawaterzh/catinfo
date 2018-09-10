@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered table-hover table-condensed " border="5"  >
+    <tr>
+        <th style="text-align: center;">类型</th>
+        <th style="text-align: center;height: 30px">日期</th>
+
+        <th style="text-align: center;">描述</th>
+    </tr>
+    {% for timeinfo in times %}
+        <tr>
+
+            <td style="text-align: center;">
+            {% if  timeinfo.type==0  %}
+                三联疫苗注射
+                {% elif  timeinfo.type==0%}
+                狂犬疫苗注射
+                {% else  %}
+                体内驱虫
+                {% endif %}
+            </td>
+            <td style="text-align: center;">{{ timeinfo.recordtime }}</td>
+            <td style="text-align: center;">{{ timeinfo.description }}</td>
+
+        </tr>
+    {% endfor %}
+
+
+</table>
+
+

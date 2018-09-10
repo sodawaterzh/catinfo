@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block app_content %}
+    <h1>添加猫信息</h1>
+    <form role="form" method="post" enctype="multipart/form-data">
+              {{ form.hidden_tag() }}
+            <p>
+                {{ form.catname.label }}<br>
+                {{ form.catname }}
+
+
+            </p>
+            <p>
+                {{ form.birthday.label }}<br>
+                {{ form.birthday(type = "date") }}
+
+            </p>
+            <p>{{ form.sex.label }}<br>
+                {{ form.sex }}
+
+            <p>
+                {{form.headimage.label}}<br>
+                {{form.headimage}}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+
+
+        </form>
+{% endblock %}
